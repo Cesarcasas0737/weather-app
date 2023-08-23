@@ -1,7 +1,6 @@
 const button = document.querySelector("#generate");
 const searchInput = document.getElementById("search"); 
 
-
 function getDeclaredWantedValue(searchValue,valueWanted,locationID){
     
     const returnLocationID = document.getElementById(`${locationID}`);
@@ -18,7 +17,6 @@ function getDeclaredWantedValue(searchValue,valueWanted,locationID){
         returnLocationID.textContent = value;
     });
 }
-
 
 function createWeatherIcon(searchValue,valueWanted,locationID){
     
@@ -58,10 +56,5 @@ button.addEventListener('click', () => {
     const searchValue = searchInput.value; 
     displaySearch(searchValue);
 });
-
-
-
-
-
 
 displaySearch("busan");
