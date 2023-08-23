@@ -2,26 +2,6 @@ const button = document.querySelector("#generate");
 const searchInput = document.getElementById("search"); 
 
 
-
-async function displaySearch(searchValue){
-    
-    const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=0ff54c39295a4402bc9214109231608&q=${searchValue}&aqi=no`, {mode: 'cors'});
-    const cityData = await response.json();
-    console.log(cityData);
-    getDeclaredWantedValue(searchValue,"response.location.country","country");
-    getDeclaredWantedValue(searchValue,"response.location.name","location-name");
-    getDeclaredWantedValue(searchValue,"response.location.localtime","local-time");
-    
-    createWeatherIcon(searchValue,"response.current.condition.icon","condition-icon")
-    getDeclaredWantedValue(searchValue,"response.current.feelslike_f","feelslike-f");
-    getDeclaredWantedValue(searchValue,"response.current.condition.text","condition-text");
-}
-
-button.addEventListener('click', () => {
-    const searchValue = searchInput.value; 
-    displaySearch(searchValue);
-});
-
 function getDeclaredWantedValue(searchValue,valueWanted,locationID){
     
     const returnLocationID = document.getElementById(`${locationID}`);
@@ -59,6 +39,29 @@ function createWeatherIcon(searchValue,valueWanted,locationID){
     });
     
 }
+
+async function displaySearch(searchValue){
+    
+    const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=0ff54c39295a4402bc9214109231608&q=${searchValue}&aqi=no`, {mode: 'cors'});
+    const cityData = await response.json();
+    console.log(cityData);
+    getDeclaredWantedValue(searchValue,"response.location.country","country");
+    getDeclaredWantedValue(searchValue,"response.location.name","location-name");
+    getDeclaredWantedValue(searchValue,"response.location.localtime","local-time");
+    
+    createWeatherIcon(searchValue,"response.current.condition.icon","condition-icon")
+    getDeclaredWantedValue(searchValue,"response.current.feelslike_f","feelslike-f");
+    getDeclaredWantedValue(searchValue,"response.current.condition.text","condition-text");
+}
+
+button.addEventListener('click', () => {
+    const searchValue = searchInput.value; 
+    displaySearch(searchValue);
+});
+
+
+
+
 
 
 displaySearch("busan");
