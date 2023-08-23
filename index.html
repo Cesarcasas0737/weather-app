@@ -4,8 +4,42 @@
     <meta charset="utf-8" />
     <title>Getting Started</title>
     <script src="https://unpkg.com/lodash@4.17.20"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <header>
+
+      <div class="search-wrapper">
+          <form>
+              <label for="search"></label>
+              <input type="text" id="search" name="search">
+          </form>
+          <button id="generate">Search</button>
+      </div>
+  </header>
+
+  <div class="weather-card">
+      <div class="location-wrapper">
+          <div id="local-time"></div>
+          <div id="country"></div>
+          <div id="location-name"></div>
+          
+      </div>
+
+      <div class="weather-info-wrapper">
+
+          <div id="condition-icon">
+
+          </div>
+          <div id="feelslike-f"></div>
+          <div id="condition-text"></div>
+      </div>
+
+      <div class="additional-weather-info">
+
+      </div>
+  </div>
+
     <script src="main.js"></script>
   </body>
 </html>
